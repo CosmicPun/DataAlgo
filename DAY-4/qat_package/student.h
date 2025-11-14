@@ -4,10 +4,9 @@
 
 template <typename T>
 T CP::queue<T>::operator[](int idx) {
-  //write something here
-  //
-  // you need to return something
-  // return 
+  size_t pos = idx >= 0 ?(mFront+idx)%mCap:(mFront+mSize+idx)%mCap;
+  T k = mData[pos];
+  return  k;
 }
 
 #endif
