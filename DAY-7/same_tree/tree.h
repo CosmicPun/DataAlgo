@@ -46,7 +46,6 @@ public:
         else return check(mRoot,t.mRoot);
     }
 
-
 protected:
     void insertAt(Node*& r, int x) {
         if (!r) {
