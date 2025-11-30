@@ -6,6 +6,10 @@ int find_head(int x, vector<int>& node){
     return node[x] = find_head(node[x],node);
 }
 
+void connect(int st,int en,vector<int> &heads){
+    heads[find_head(en,heads)] = find_head(st,heads);
+}
+
 int main(){
     int n;
     cin >> n;
@@ -21,9 +25,7 @@ int main(){
             if(find_head(st,node) == find_head(en,node)){
                 cycle = true;
             }
-            else {
-                node[find_head(en,node)] = find_head(st,node);
-            }
+            else connect(st,en,node);
         }
         cout << (cycle ? "YES\n" : "NO\n");
     }
